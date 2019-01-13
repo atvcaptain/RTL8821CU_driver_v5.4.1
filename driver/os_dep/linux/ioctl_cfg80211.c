@@ -684,6 +684,13 @@ static int rtw_cfg80211_sync_iftype(_adapter *adapter)
 	return _SUCCESS;
 }
 
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4,20,0))
+static inline void get_monotonic_boottime(struct timespec *ts)
+{
+       *ts = ktime_to_timespec(ktime_get_boottime());
+}
+#endif
+
 static u64 rtw_get_systime_us(void)
 {
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 39))
