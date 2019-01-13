@@ -1,5 +1,5 @@
 Support Linux kernel version
-2.6.18-4.16
+2.6.18-4.20
 
 CPU support
 x86
